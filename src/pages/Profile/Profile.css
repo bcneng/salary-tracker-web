@@ -1,0 +1,6 @@
+ion-content ion-toolbar {
+  --background: translucent;
+}
+.profile ion-item-divider{
+    --background: transparent;
+}
