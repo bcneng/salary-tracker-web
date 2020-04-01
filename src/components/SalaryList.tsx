@@ -1,6 +1,12 @@
-import React from "react";
-import { IonCard, IonCardContent, IonCardHeader, IonCardTitle, IonCardSubtitle } from "@ionic/react";
-import "./SalaryList.scss";
+import React from 'react';
+import {
+  IonCard,
+  IonCardContent,
+  IonCardHeader,
+  IonCardTitle,
+  IonCardSubtitle,
+} from '@ionic/react';
+import './SalaryList.scss';
 
 export type Salary = {
   company: string;
@@ -24,7 +30,8 @@ export const SalaryList: React.FC<Props> = ({ salaries, onSalaryClick }) => {
           routerLink={`/home/${salary.company}`}
         >
           <IonCardHeader>
-            <IonCardTitle>{salary.company} </IonCardTitle></IonCardHeader>
+            <IonCardTitle>{salary.company} </IonCardTitle>
+          </IonCardHeader>
           <IonCardContent>
             <IonCardSubtitle>{salary.position}</IonCardSubtitle>
             {salary.salary} €

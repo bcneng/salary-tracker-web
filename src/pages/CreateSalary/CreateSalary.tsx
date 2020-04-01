@@ -1,5 +1,5 @@
-import React, { useState, useRef } from "react";
-import "./CreateSalary.scss";
+import React, { useState, useRef } from 'react';
+import './CreateSalary.scss';
 import {
   IonModal,
   IonButton,
@@ -12,8 +12,8 @@ import {
   IonButtons,
   IonTitle,
   IonContent,
-  IonRange
-} from "@ionic/react";
+  IonRange,
+} from '@ionic/react';
 
 type Props = {
   showModal: boolean;
@@ -30,12 +30,12 @@ type CompanyForm = {
 export const CreateSalary: React.FC<Props> = ({
   showModal,
   closeModal,
-  submitValue
+  submitValue,
 }) => {
   const [formNewSalary, setFormNewSalary] = useState<CompanyForm>({
-    company: "",
-    position: "",
-    salary: 0
+    company: '',
+    position: '',
+    salary: 0,
   });
 
   const modalRef = useRef<any>({});
@@ -61,10 +61,10 @@ export const CreateSalary: React.FC<Props> = ({
         <IonItem lines="none">
           <IonLabel position="stacked">Compañia</IonLabel>
           <IonInput
-            onIonChange={e =>
+            onIonChange={(e) =>
               setFormNewSalary({
                 ...formNewSalary,
-                company: e.detail.value as string
+                company: e.detail.value as string,
               })
             }
             className="input"
@@ -74,10 +74,10 @@ export const CreateSalary: React.FC<Props> = ({
         <IonItem lines="none">
           <IonLabel position="stacked">Posicion</IonLabel>
           <IonInput
-            onIonChange={e =>
+            onIonChange={(e) =>
               setFormNewSalary({
                 ...formNewSalary,
-                position: e.detail.value as string
+                position: e.detail.value as string,
               })
             }
             className="input"
@@ -92,17 +92,19 @@ export const CreateSalary: React.FC<Props> = ({
           <IonRange
             class="ion-no-padding ion-padding-vertical "
             pin={true}
-            onIonChange={e =>
+            onIonChange={(e) =>
               setFormNewSalary({
                 ...formNewSalary,
-                salary: e.detail.value as number
+                salary: e.detail.value as number,
               })
             }
             min={1000}
             max={2000}
             color="secondary"
           >
-            <IonLabel slot="start" class="ion-margin-end">Salario</IonLabel>
+            <IonLabel slot="start" class="ion-margin-end">
+              Salario
+            </IonLabel>
             <IonLabel slot="start">1000€</IonLabel>
             <IonLabel slot="end">3000€</IonLabel>
           </IonRange>

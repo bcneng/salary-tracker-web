@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState } from 'react';
 import {
   IonContent,
   IonHeader,
@@ -12,30 +12,30 @@ import {
   IonButton,
   IonCardSubtitle,
   IonCardTitle,
-  IonListHeader
-} from "@ionic/react";
-import "./Home.css";
+  IonListHeader,
+} from '@ionic/react';
+import './Home.css';
 import { SalaryList, Salary } from '../../components/SalaryList';
-import { CreateSalary } from "../CreateSalary/CreateSalary";
+import { CreateSalary } from '../CreateSalary/CreateSalary';
 
 const Home: React.FC = () => {
   const [showNewSalaryModal, setShowNewSalaryModal] = useState(false);
   const [salaries, setSalaries] = useState([
     {
-      company: "Company Name Here",
+      company: 'Company Name Here',
       position: 'Front End Developer',
-      salary: 2000
+      salary: 2000,
     },
     {
-      company: "Company Name Here",
+      company: 'Company Name Here',
       position: 'Front End Developer',
-      salary: 4000
+      salary: 4000,
     },
     {
-      company: "Company Name Here",
+      company: 'Company Name Here',
       position: 'Front End Developer',
-      salary: 5000
-    }
+      salary: 5000,
+    },
   ]);
 
   const handleSalaryClick = (salary: Salary) => {
@@ -48,7 +48,6 @@ const Home: React.FC = () => {
 
   const handleNewSalary = () => {
     setShowNewSalaryModal(false);
-
   };
   const handleSubmitNewSalary = (newSalary: any) => {
     setSalaries([...salaries, newSalary]);
@@ -71,7 +70,7 @@ const Home: React.FC = () => {
           <IonCard>
             <img
               alt="barcelona"
-              style={{ height: "150px", objectFit: "cover", width: "100%" }}
+              style={{ height: '150px', objectFit: 'cover', width: '100%' }}
               src="https://www.eindhovenairport.nl/sites/default/files/styles/header_image_bestemming/public/barcelona_1.jpg?itok=UqE05-BM&c=eb5fe87ae2d5ccb93351e16083d7b920"
             />
             <IonCardHeader>

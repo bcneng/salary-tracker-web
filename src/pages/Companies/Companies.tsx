@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState } from 'react';
 import {
   IonContent,
   IonHeader,
@@ -12,9 +12,9 @@ import {
   IonCardContent,
   IonListHeader,
   IonItem,
-  IonSearchbar
-} from "@ionic/react";
-import "./Companies.css";
+  IonSearchbar,
+} from '@ionic/react';
+import './Companies.css';
 
 type Company = {
   name: string;
@@ -27,29 +27,29 @@ const Companies: React.FC = () => {
   const [searchQuery, setSearchQuery] = useState('');
   const companies: Company[] = [
     {
-      name: "Company Z",
+      name: 'Company Z',
       description:
-        "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Velit saepe laborum fugit, rerum repudiandae eaque sed earum, eveniet aliquid laboriosam, vero amet exercitationem aperiam quaerat. Repellat placeat reprehenderit quas. Doloremque?",
-      employees: 50
+        'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Velit saepe laborum fugit, rerum repudiandae eaque sed earum, eveniet aliquid laboriosam, vero amet exercitationem aperiam quaerat. Repellat placeat reprehenderit quas. Doloremque?',
+      employees: 50,
     },
     {
-      name: "Company W",
+      name: 'Company W',
       description:
-        "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Velit saepe laborum fugit, rerum repudiandae eaque sed earum, eveniet aliquid laboriosam, vero amet exercitationem aperiam quaerat. Repellat placeat reprehenderit quas. Doloremque?",
-      employees: 1000
+        'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Velit saepe laborum fugit, rerum repudiandae eaque sed earum, eveniet aliquid laboriosam, vero amet exercitationem aperiam quaerat. Repellat placeat reprehenderit quas. Doloremque?',
+      employees: 1000,
     },
     {
-      name: "Company Y",
+      name: 'Company Y',
       description:
-        "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Velit saepe laborum fugit, rerum repudiandae eaque sed earum, eveniet aliquid laboriosam, vero amet exercitationem aperiam quaerat. Repellat placeat reprehenderit quas. Doloremque?",
-      employees: 100
+        'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Velit saepe laborum fugit, rerum repudiandae eaque sed earum, eveniet aliquid laboriosam, vero amet exercitationem aperiam quaerat. Repellat placeat reprehenderit quas. Doloremque?',
+      employees: 100,
     },
     {
-      name: "Empresa X",
+      name: 'Empresa X',
       description:
-        "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Velit saepe laborum fugit, rerum repudiandae eaque sed earum, eveniet aliquid laboriosam, vero amet exercitationem aperiam quaerat. Repellat placeat reprehenderit quas. Doloremque?",
-      employees: 300
-    }
+        'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Velit saepe laborum fugit, rerum repudiandae eaque sed earum, eveniet aliquid laboriosam, vero amet exercitationem aperiam quaerat. Repellat placeat reprehenderit quas. Doloremque?',
+      employees: 300,
+    },
   ];
 
   const changeSearch = (event: CustomEvent) => {
@@ -70,7 +70,7 @@ const Companies: React.FC = () => {
           </IonListHeader>
           <IonItem lines="none">
             <IonSearchbar
-              onIonChange={event => {
+              onIonChange={(event) => {
                 changeSearch(event);
               }}
               placeholder="Buscar"
@@ -85,7 +85,9 @@ const Companies: React.FC = () => {
               <IonCard key={company.name}>
                 <IonCardContent>
                   <IonCardTitle>{company.name}</IonCardTitle>
-                  <IonCardSubtitle>Empleados: {company.employees}</IonCardSubtitle>
+                  <IonCardSubtitle>
+                    Empleados: {company.employees}
+                  </IonCardSubtitle>
                   {company.description}
                 </IonCardContent>
               </IonCard>

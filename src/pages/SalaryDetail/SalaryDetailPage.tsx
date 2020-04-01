@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 import {
   IonContent,
   IonHeader,
@@ -18,41 +18,41 @@ import {
   IonBackButton,
   IonListHeader,
   IonList,
-  IonChip
-} from "@ionic/react";
-import { useParams } from "react-router-dom";
+  IonChip,
+} from '@ionic/react';
+import { useParams } from 'react-router-dom';
 
-import "./SalaryDetailPage.css";
+import './SalaryDetailPage.css';
 
 const companySalaries = [
   {
-    name: "Manuel",
+    name: 'Manuel',
     salary: 2000,
-    position: "Back End Developer",
+    position: 'Back End Developer',
     avatar:
-      "https://gravatar.com/avatar/dba6bae8c566f9d4041fb9cd9ada7741?d=identicon&f=y"
+      'https://gravatar.com/avatar/dba6bae8c566f9d4041fb9cd9ada7741?d=identicon&f=y',
   },
   {
-    name: "Pablo",
+    name: 'Pablo',
     salary: 3000,
-    position: "DevOps",
+    position: 'DevOps',
     avatar:
-      "https://gravatar.com/avatar/dba6bae8c566f9d4041fb9cd9ada7741?d=identicon&f=y"
+      'https://gravatar.com/avatar/dba6bae8c566f9d4041fb9cd9ada7741?d=identicon&f=y',
   },
   {
-    name: "Juan",
+    name: 'Juan',
     salary: 5000,
-    position: "Front End Developer",
+    position: 'Front End Developer',
     avatar:
-      "https://gravatar.com/avatar/dba6bae8c566f9d4041fb9cd9ada7741?d=identicon&f=y"
+      'https://gravatar.com/avatar/dba6bae8c566f9d4041fb9cd9ada7741?d=identicon&f=y',
   },
   {
-    name: "Pedro",
+    name: 'Pedro',
     salary: 10000,
-    position: "Back End Developer",
+    position: 'Back End Developer',
     avatar:
-      "https://gravatar.com/avatar/dba6bae8c566f9d4041fb9cd9ada7741?d=identicon&f=y"
-  }
+      'https://gravatar.com/avatar/dba6bae8c566f9d4041fb9cd9ada7741?d=identicon&f=y',
+  },
 ];
 
 const SalaryDetailPage: React.FC = () => {
@@ -60,7 +60,7 @@ const SalaryDetailPage: React.FC = () => {
 
   const salary = {
     company: id,
-    amount: 2000
+    amount: 2000,
   };
 
   return (
@@ -98,7 +98,7 @@ const SalaryDetailPage: React.FC = () => {
             <IonListHeader color="none" lines="none">
               Otros salarios ingresados:
             </IonListHeader>
-            {companySalaries.map(review => (
+            {companySalaries.map((review) => (
               <IonItem key={review.name}>
                 <IonAvatar slot="start">
                   <img
