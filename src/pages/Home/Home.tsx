@@ -23,17 +23,17 @@ const Home: React.FC = () => {
   const [salaries, setSalaries] = useState([
     {
       company: "Company Name Here",
-      position:'Front End Developer',
+      position: 'Front End Developer',
       salary: 2000
     },
     {
       company: "Company Name Here",
-      position:'Front End Developer',
+      position: 'Front End Developer',
       salary: 4000
     },
     {
       company: "Company Name Here",
-      position:'Front End Developer',
+      position: 'Front End Developer',
       salary: 5000
     }
   ]);
@@ -51,7 +51,7 @@ const Home: React.FC = () => {
 
   };
   const handleSubmitNewSalary = (newSalary: any) => {
-    setSalaries([...salaries,newSalary]);
+    setSalaries([...salaries, newSalary]);
   };
 
   return (
@@ -87,6 +87,7 @@ const Home: React.FC = () => {
           </IonCard>
           <IonButton
             className="ion-margin-horizontal"
+            data-cy="add-salary-button"
             onClick={() => {
               createSalary();
             }}
