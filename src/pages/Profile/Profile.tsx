@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 import {
   IonContent,
   IonHeader,
@@ -17,15 +17,15 @@ import {
   IonCardSubtitle,
   IonList,
   IonListHeader,
-  IonIcon
-} from "@ionic/react";
-import { moon, notificationsOutline } from "ionicons/icons";
+  IonIcon,
+} from '@ionic/react';
+import { moon, notificationsOutline } from 'ionicons/icons';
 
-import "./Profile.css";
+import './Profile.css';
 
 const Profile: React.FC = () => {
   const toggleDarkMode = (event: any) => {
-    document.body.classList.toggle("dark", event.detail.checked);
+    document.body.classList.toggle('dark', event.detail.checked);
   };
   return (
     <IonPage>
@@ -49,15 +49,15 @@ const Profile: React.FC = () => {
             </IonCardContent>
           </IonCard>
           <IonList>
-            <IonItem lines={"none"} mode="ios">
+            <IonItem lines={'none'} mode="ios">
               <IonIcon slot="start" icon={moon}></IonIcon>
               <IonLabel>Activar Dark Mode</IonLabel>
               <IonToggle
-                onIonChange={e => toggleDarkMode(e)}
+                onIonChange={(e) => toggleDarkMode(e)}
                 slot="end"
               ></IonToggle>
             </IonItem>
-            <IonItem lines={"none"} mode="ios">
+            <IonItem lines={'none'} mode="ios">
               <IonIcon slot="start" icon={notificationsOutline}></IonIcon>
               <IonLabel>Notificationes </IonLabel>
               <IonToggle slot="end" />

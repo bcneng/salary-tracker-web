@@ -28,7 +28,18 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "cypress-gui": "cypress open",
-    "cypress": "cypress run"
+    "cypress": "cypress run",
+    "format": "prettier '**/*.{ts,tsx,js,scss}' --write"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{ts,tsx,js,scss}": [
+      "prettier --write"
+    ]
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -48,6 +59,9 @@
   "description": "Salary Tracker",
   "devDependencies": {
     "cypress": "^4.3.0",
-    "node-sass": "^4.13.1"
+    "node-sass": "^4.13.1",
+    "husky": "^4.2.3",
+    "lint-staged": "^10.1.1",
+    "prettier": "^2.0.2"
   }
 }
