@@ -10,10 +10,16 @@ import {
   IonTabs,
 } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
-import { home, settings, person } from 'ionicons/icons';
+import {
+  home,
+  settings,
+  person,
+  informationCircleOutline,
+} from 'ionicons/icons';
 import Home from './pages/Home/Home';
 import Companies from './pages/Companies/Companies';
 import Profile from './pages/Profile/Profile';
+import About from './pages/About/About';
 
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css';
@@ -42,6 +48,7 @@ const App: React.FC = () => {
       <IonReactRouter>
         <IonTabs>
           <IonRouterOutlet>
+            <Route path="/about" component={About} exact />
             <Route path="/home" component={Home} exact />
             <Route path="/home/:id" component={SalaryDetailPage} exact />
             <Route path="/companies" component={Companies} exact />
@@ -63,6 +70,14 @@ const App: React.FC = () => {
             <IonTabButton tab="profile" href="/profile">
               <IonIcon className="ion-hide-sm-up" icon={person} />
               <IonLabel>Profile</IonLabel>
+            </IonTabButton>
+
+            <IonTabButton tab="about" href="/about">
+              <IonIcon
+                className="ion-hide-sm-up"
+                icon={informationCircleOutline}
+              />
+              <IonLabel>About</IonLabel>
             </IonTabButton>
           </IonTabBar>
         </IonTabs>
