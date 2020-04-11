@@ -10,14 +10,8 @@ import {
   IonTabs,
 } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
-import {
-  home,
-  settings,
-  person,
-  informationCircleOutline,
-} from 'ionicons/icons';
+import { home, person, informationCircleOutline } from 'ionicons/icons';
 import Home from './pages/Home/Home';
-import Companies from './pages/Companies/Companies';
 import Profile from './pages/Profile/Profile';
 import About from './pages/About/About';
 
@@ -51,7 +45,6 @@ const App: React.FC = () => {
             <Route path="/about" component={About} exact />
             <Route path="/home" component={Home} exact />
             <Route path="/home/:id" component={SalaryDetailPage} exact />
-            <Route path="/companies" component={Companies} exact />
             <Route path="/profile" component={Profile} exact />
             <Redirect exact from="/" to="/home" />
           </IonRouterOutlet>
@@ -60,11 +53,6 @@ const App: React.FC = () => {
             <IonTabButton tab="home" href="/home">
               <IonIcon className="ion-hide-sm-up" icon={home} />
               <IonLabel>Home</IonLabel>
-            </IonTabButton>
-
-            <IonTabButton tab="companies" href="/companies">
-              <IonIcon className="ion-hide-sm-up" icon={settings} />
-              <IonLabel>Companies</IonLabel>
             </IonTabButton>
 
             <IonTabButton tab="profile" href="/profile">
