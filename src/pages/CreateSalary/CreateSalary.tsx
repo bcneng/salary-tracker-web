@@ -40,7 +40,7 @@ const CreateSalary: React.FC = () => {
   const [technology, setTechnology] = useState('');
 
   const confirmSalary = () => {
-    console.log(formNewSalary.technologies);
+    console.log(formNewSalary);
   };
 
   const addNewTechnology = () => {
@@ -109,7 +109,7 @@ const CreateSalary: React.FC = () => {
                 onIonChange={(e) =>
                   setFormNewSalary({
                     ...formNewSalary,
-                    position: e.detail.value! as string,
+                    role: e.detail.value! as string,
                   })
                 }
                 className="input ion-margin-top"
@@ -146,7 +146,7 @@ const CreateSalary: React.FC = () => {
               ></IonInput>
             </div>
             <div className="input-wrapper">
-              <IonLabel class="label">Gross Annual Salary</IonLabel>
+              <IonLabel class="label">Gross Annual Salary (€)</IonLabel>
               <IonInput
                 onIonChange={(e) =>
                   setFormNewSalary({
