@@ -1,5 +1,6 @@
 body {
   --ion-grid-width-xl: 850px;
+  --base-font-size: 14px;
 }
 
 .ion-page ion-content {
@@ -36,6 +37,9 @@ body {
   }
   ion-tab-bar ion-label {
     font-size: 16px;
+  }
+  ion-list-header {
+    font-size: 22px;
   }
 }
 
