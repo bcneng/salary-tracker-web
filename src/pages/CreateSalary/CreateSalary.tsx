@@ -1,120 +1,270 @@
-import React, { useState, useRef } from 'react';
+import React, { useState } from 'react';
 import './CreateSalary.scss';
 import {
-  IonModal,
   IonButton,
   IonInput,
   IonLabel,
-  IonItem,
-  IonFooter,
   IonHeader,
   IonToolbar,
-  IonButtons,
   IonTitle,
   IonContent,
-  IonRange,
+  IonToggle,
+  IonGrid,
+  IonPage,
+  IonList,
+  IonChip,
+  IonIcon,
+  IonButtons,
+  IonBackButton,
 } from '@ionic/react';
 
-type Props = {
-  showModal: boolean;
-  closeModal: () => void;
-  submitValue: (event: CompanyForm) => void;
-};
+import { closeCircleOutline, arrowBack } from 'ionicons/icons';
+import { Salary } from '../Salaries/Salaries';
 
-type CompanyForm = {
-  company?: string;
-  position?: string;
-  salary?: number;
-};
+type SalaryInputForm = Omit<Salary, 'id'>;
 
-export const CreateSalary: React.FC<Props> = ({
-  showModal,
-  closeModal,
-  submitValue,
-}) => {
-  const [formNewSalary, setFormNewSalary] = useState<CompanyForm>({
-    company: '',
+const CreateSalary: React.FC = () => {
+  const [formNewSalary, setFormNewSalary] = useState<SalaryInputForm>({
+    experience: 0,
     position: '',
-    salary: 0,
+    technologies: [],
+    role: '',
+    employmentType: '',
+    companySize: '',
+    grossSalary: 0,
+    location: '',
+    fullRemote: false,
+    gender: '',
+    weeklyHours: 0,
   });
+  const [technology, setTechnology] = useState('');
 
-  const modalRef = useRef<any>({});
+  const confirmSalary = () => {
+    console.log(formNewSalary.technologies);
+  };
 
-  const confirmModal = () => {
-    if (modalRef) {
-      modalRef.current.dismiss();
-    }
-    submitValue(formNewSalary);
+  const addNewTechnology = () => {
+    if (!technology || formNewSalary.technologies.includes(technology)) return;
+    setFormNewSalary({
+      ...formNewSalary,
+      technologies: [...formNewSalary.technologies, technology],
+    });
+    setTechnology('');
   };
 
   return (
-    <IonModal ref={modalRef} onDidDismiss={closeModal} isOpen={showModal}>
-      <IonHeader className="ion-no-border">
+    <IonPage>
+      <IonHeader className="ion-hide-sm-up" mode="md">
         <IonToolbar>
-          <IonButtons slot="end">
-            <IonButton onClick={closeModal}>Cerrar</IonButton>
+          <IonButtons slot="start">
+            <IonBackButton defaultHref="/salaries" />
           </IonButtons>
-          <IonTitle>Registrar Salario</IonTitle>
+          <IonTitle>Add New Salary</IonTitle>
         </IonToolbar>
       </IonHeader>
-      <IonContent className="modal">
-        <IonItem lines="none">
-          <IonLabel position="stacked">Compañia</IonLabel>
-          <IonInput
-            onIonChange={(e) =>
-              setFormNewSalary({
-                ...formNewSalary,
-                company: e.detail.value as string,
-              })
-            }
-            className="input"
-            value={formNewSalary.company}
-          ></IonInput>
-        </IonItem>
-        <IonItem lines="none">
-          <IonLabel position="stacked">Posicion</IonLabel>
-          <IonInput
-            onIonChange={(e) =>
-              setFormNewSalary({
-                ...formNewSalary,
-                position: e.detail.value as string,
-              })
-            }
-            className="input"
-            value={formNewSalary.position}
-          ></IonInput>
-        </IonItem>
-        <br />
-        <IonItem
-          class="ion-justify-content-center ion-padding-end"
-          lines="none"
-        >
-          <IonRange
-            class="ion-no-padding ion-padding-vertical "
-            pin={true}
-            onIonChange={(e) =>
-              setFormNewSalary({
-                ...formNewSalary,
-                salary: e.detail.value as number,
-              })
-            }
-            min={1000}
-            max={2000}
-            color="secondary"
+      <IonContent class="">
+        <IonGrid className="page-header" fixed>
+          <IonButton
+            class="ion-hide-sm-down"
+            fill="clear"
+            routerLink="/salaries"
           >
-            <IonLabel slot="start" class="ion-margin-end">
-              Salario
-            </IonLabel>
-            <IonLabel slot="start">1000€</IonLabel>
-            <IonLabel slot="end">3000€</IonLabel>
-          </IonRange>
-        </IonItem>
+            <IonIcon class="ion-margin-end" icon={arrowBack}></IonIcon> Back to
+            Salaries
+          </IonButton>
+          <IonList class="form-list ion-padding">
+            <div className="input-wrapper">
+              <IonLabel class="label">
+                Experience in the position (years)
+              </IonLabel>
+              <IonInput
+                onIonChange={(e) =>
+                  setFormNewSalary({
+                    ...formNewSalary,
+                    experience: parseInt(e.detail.value!, 10),
+                  })
+                }
+                type="number"
+                className="input ion-margin-top"
+                value={formNewSalary.experience}
+              ></IonInput>
+            </div>
+            <div className="input-wrapper">
+              <IonLabel class="label">Current Position</IonLabel>
+              <IonInput
+                onIonChange={(e) =>
+                  setFormNewSalary({
+                    ...formNewSalary,
+                    position: e.detail.value! as string,
+                  })
+                }
+                type="text"
+                className="input ion-margin-top"
+                value={formNewSalary.position}
+              ></IonInput>
+            </div>
+            <div className="input-wrapper">
+              <IonLabel class="label">Role</IonLabel>
+              <IonInput
+                onIonChange={(e) =>
+                  setFormNewSalary({
+                    ...formNewSalary,
+                    position: e.detail.value! as string,
+                  })
+                }
+                className="input ion-margin-top"
+                value={formNewSalary.role}
+                type="text"
+              ></IonInput>
+            </div>
+            <div className="input-wrapper">
+              <IonLabel class="label">Employment Type</IonLabel>
+              <IonInput
+                onIonChange={(e) =>
+                  setFormNewSalary({
+                    ...formNewSalary,
+                    employmentType: e.detail.value! as string,
+                  })
+                }
+                className="input ion-margin-top"
+                value={formNewSalary.employmentType}
+                type="text"
+              ></IonInput>
+            </div>
+            <div className="input-wrapper">
+              <IonLabel class="label">Company size</IonLabel>
+              <IonInput
+                onIonChange={(e) =>
+                  setFormNewSalary({
+                    ...formNewSalary,
+                    companySize: e.detail.value! as string,
+                  })
+                }
+                className="input ion-margin-top"
+                value={formNewSalary.companySize}
+                type="text"
+              ></IonInput>
+            </div>
+            <div className="input-wrapper">
+              <IonLabel class="label">Gross Annual Salary</IonLabel>
+              <IonInput
+                onIonChange={(e) =>
+                  setFormNewSalary({
+                    ...formNewSalary,
+                    grossSalary: parseInt(e.detail.value!, 10),
+                  })
+                }
+                type="number"
+                className="input ion-margin-top"
+                value={formNewSalary.grossSalary}
+              ></IonInput>
+            </div>
+
+            <div className="input-wrapper">
+              <IonLabel class="label">Location</IonLabel>
+              <IonInput
+                onIonChange={(e) =>
+                  setFormNewSalary({
+                    ...formNewSalary,
+                    location: e.detail.value! as string,
+                  })
+                }
+                className="input ion-margin-top"
+                value={formNewSalary.location}
+                type="text"
+              ></IonInput>
+            </div>
+
+            <div className="input-wrapper">
+              <IonLabel class="label">Gender</IonLabel>
+              <IonInput
+                onIonChange={(e) =>
+                  setFormNewSalary({
+                    ...formNewSalary,
+                    gender: e.detail.value! as string,
+                  })
+                }
+                className="input ion-margin-top"
+                value={formNewSalary.gender}
+                type="text"
+              ></IonInput>
+            </div>
+
+            <div className="input-wrapper">
+              <IonLabel class="label">Is your position fully remote? </IonLabel>
+              <IonToggle
+                checked={formNewSalary.fullRemote}
+                class="ion-margin-top ion-justify-content-start"
+                onIonChange={(e) =>
+                  setFormNewSalary({
+                    ...formNewSalary,
+                    fullRemote: e.detail.checked,
+                  })
+                }
+              />
+            </div>
+
+            <div className="input-wrapper">
+              <IonLabel class="label">Weekly Hours</IonLabel>
+              <IonInput
+                onIonChange={(e) =>
+                  setFormNewSalary({
+                    ...formNewSalary,
+                    weeklyHours: parseInt(e.detail.value!, 10),
+                  })
+                }
+                type="number"
+                className="input ion-margin-top"
+                value={formNewSalary.weeklyHours}
+              ></IonInput>
+            </div>
+            <div className="input-wrapper ion-align-self-start">
+              <IonLabel class="label">Technologies</IonLabel>
+              <div className="ion-margin-top">
+                {formNewSalary.technologies.map((tech) => (
+                  <IonChip color="primary" key={tech}>
+                    <IonLabel>{tech}</IonLabel>
+                    <IonIcon
+                      icon={closeCircleOutline}
+                      onClick={() =>
+                        setFormNewSalary({
+                          ...formNewSalary,
+                          technologies: formNewSalary.technologies.filter(
+                            (item) => item !== tech,
+                          ),
+                        })
+                      }
+                    />
+                  </IonChip>
+                ))}
+              </div>
+              <IonInput
+                type="text"
+                className="input ion-margin-top"
+                onIonChange={(e) => setTechnology(e.detail.value! as string)}
+                value={technology}
+              ></IonInput>
+              <IonButton
+                class="ion-margin-top"
+                slot="end"
+                size="small"
+                onClick={addNewTechnology}
+              >
+                Add
+              </IonButton>
+            </div>
+          </IonList>
+          <IonButton
+            className="ion-margin"
+            expand="block"
+            onClick={confirmSalary}
+          >
+            Confirm Salary Entry
+          </IonButton>
+        </IonGrid>
       </IonContent>
-      <IonFooter>
-        <IonButton className="ion-margin" expand="block" onClick={confirmModal}>
-          Guardar Salario
-        </IonButton>
-      </IonFooter>
-    </IonModal>
+    </IonPage>
   );
 };
+
+export default CreateSalary;

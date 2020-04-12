@@ -7,12 +7,7 @@ import {
   IonCardSubtitle,
 } from '@ionic/react';
 import './SalaryList.scss';
-
-export type Salary = {
-  company: string;
-  salary: number;
-  position: string;
-};
+import { Salary } from './../pages/Salaries/Salaries';
 
 type Props = {
   salaries: Salary[];
@@ -27,14 +22,14 @@ export const SalaryList: React.FC<Props> = ({ salaries, onSalaryClick }) => {
           className="animated-car"
           key={index}
           href=""
-          routerLink={`/home/${salary.company}`}
+          routerLink={`/salaries/${salary.id}`}
         >
           <IonCardHeader>
-            <IonCardTitle>{salary.company} </IonCardTitle>
+            <IonCardTitle>{salary.role} </IonCardTitle>
           </IonCardHeader>
           <IonCardContent>
             <IonCardSubtitle>{salary.position}</IonCardSubtitle>
-            {salary.salary} €
+            {salary.grossSalary} €
           </IonCardContent>
         </IonCard>
       ))}

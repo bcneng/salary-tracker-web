@@ -1,8 +1,40 @@
-.modal {
-  color: red;
-  .input {
-    background: #ded4d440;
-    border-radius: 5px;
-    --padding-start: 10px;
+ion-content {
+  .form-list {
+    .input-wrapper {
+      --padding-start: 0;
+      margin: 10px 0 20px;
+      .input {
+        --padding-start: 10px;
+        background: #ded4d440;
+        border-radius: 5px;
+      }
+      ion-toggle {
+        display: flex;
+      }
+    }
+  }
+}
+
+@media (min-width: 576px) {
+  ion-content {
+    .form-list {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      .input-wrapper {
+        flex-grow: 1;
+        flex-basis: 300px;
+        max-width: 400px;
+        margin: 10px 15px 20px;
+        .input {
+          --padding-start: 10px;
+        }
+        .label {
+          font-size: var(--base-font-size);
+          transform: none;
+          margin: 0;
+        }
+      }
+    }
   }
 }

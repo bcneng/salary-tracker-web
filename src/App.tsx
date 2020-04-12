@@ -10,10 +10,15 @@ import {
   IonTabs,
 } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
-import { home, person, informationCircleOutline } from 'ionicons/icons';
+import {
+  home,
+  informationCircleOutline,
+  documentTextOutline,
+} from 'ionicons/icons';
 import Home from './pages/Home/Home';
-import Profile from './pages/Profile/Profile';
 import About from './pages/About/About';
+import Salaries from './pages/Salaries/Salaries';
+import CreateSalary from './pages/CreateSalary/CreateSalary';
 
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css';
@@ -44,8 +49,9 @@ const App: React.FC = () => {
           <IonRouterOutlet>
             <Route path="/about" component={About} exact />
             <Route path="/home" component={Home} exact />
-            <Route path="/home/:id" component={SalaryDetailPage} exact />
-            <Route path="/profile" component={Profile} exact />
+            <Route path="/salaries" component={Salaries} exact />
+            <Route path="/salaries/new-salary" component={CreateSalary} exact />
+            <Route path="/salaries/:id" component={SalaryDetailPage} exact />
             <Redirect exact from="/" to="/home" />
           </IonRouterOutlet>
 
@@ -55,9 +61,9 @@ const App: React.FC = () => {
               <IonLabel>Home</IonLabel>
             </IonTabButton>
 
-            <IonTabButton tab="profile" href="/profile">
-              <IonIcon className="ion-hide-sm-up" icon={person} />
-              <IonLabel>Profile</IonLabel>
+            <IonTabButton tab="salaries" href="/salaries">
+              <IonIcon className="ion-hide-sm-up" icon={documentTextOutline} />
+              <IonLabel>Salaries</IonLabel>
             </IonTabButton>
 
             <IonTabButton tab="about" href="/about">
