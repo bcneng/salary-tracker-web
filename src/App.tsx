@@ -39,7 +39,6 @@ import '@ionic/react/css/display.css';
 /* Theme variables */
 import './theme/variables.scss';
 import './theme/main.scss';
-import SalaryDetailPage from './pages/SalaryDetail/SalaryDetailPage';
 
 const App: React.FC = () => {
   return (
@@ -51,7 +50,6 @@ const App: React.FC = () => {
             <Route path="/home" component={Home} exact />
             <Route path="/salaries" component={Salaries} exact />
             <Route path="/salaries/new-salary" component={CreateSalary} exact />
-            <Route path="/salaries/:id" component={SalaryDetailPage} exact />
             <Redirect exact from="/" to="/home" />
           </IonRouterOutlet>
 

@@ -11,19 +11,13 @@ import { Salary } from './../pages/Salaries/Salaries';
 
 type Props = {
   salaries: Salary[];
-  onSalaryClick: (salary: Salary) => void;
 };
 
-export const SalaryList: React.FC<Props> = ({ salaries, onSalaryClick }) => {
+export const SalaryList: React.FC<Props> = ({ salaries }) => {
   return (
     <>
       {salaries.map((salary, index) => (
-        <IonCard
-          className="animated-car"
-          key={index}
-          href=""
-          routerLink={`/salaries/${salary.id}`}
-        >
+        <IonCard className="animated-car" key={index}>
           <IonCardHeader>
             <IonCardTitle>{salary.role} </IonCardTitle>
           </IonCardHeader>

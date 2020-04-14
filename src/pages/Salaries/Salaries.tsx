@@ -77,8 +77,6 @@ const Salaries: React.FC = () => {
     },
   ];
 
-  const handleSalaryClick = () => {};
-
   return (
     <IonPage>
       <IonHeader className="ion-hide-sm-up" mode="md">
@@ -108,7 +106,7 @@ const Salaries: React.FC = () => {
           <IonListHeader color="none" lines="none">
             Last entries
           </IonListHeader>
-          <SalaryList salaries={salaries} onSalaryClick={handleSalaryClick} />
+          <SalaryList salaries={salaries} />
         </IonGrid>
       </IonContent>
     </IonPage>
