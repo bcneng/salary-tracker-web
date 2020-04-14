@@ -11,6 +11,7 @@ import {
   IonGrid,
   IonCardSubtitle,
   IonCardTitle,
+  IonButton,
 } from '@ionic/react';
 import './Home.scss';
 
@@ -41,6 +42,14 @@ const Home: React.FC = () => {
               repellat inventore eos assumenda quas nobis nulla saepe.
             </IonCardContent>
           </IonCard>
+          <IonButton
+            className="ion-margin-horizontal ion-margin-top"
+            data-cy="add-salary-button"
+            routerLink={`/salaries/new-salary`}
+            expand="block"
+          >
+            Add New Salary
+          </IonButton>
         </IonGrid>
       </IonContent>
     </IonPage>
