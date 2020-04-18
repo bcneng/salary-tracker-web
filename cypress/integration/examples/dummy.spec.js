@@ -1,8 +1,8 @@
 /// <reference types="cypress" />
 
-context('Home page', () => {
+context('Salaries page', () => {
   beforeEach(() => {
-    cy.visit('localhost:3000');
+    cy.visit('localhost:3000/salaries');
   });
 
   it('should have a button to add salary in desktop version', () => {
@@ -14,8 +14,8 @@ context('Home page', () => {
     cy.get('[data-cy=add-salary-button]').should('be.visible');
   });
 
-  it('should show the add salary popup when button is clicked', () => {
-    cy.get('.ion-margin-horizontal').click();
-    cy.get('.modal').should('be.visible');
+  it('should navigate to the add salary page when button is clicked', () => {
+    cy.get('[data-cy=add-salary-button]').click();
+    cy.url().should('include', '/salaries/new-salary');
   });
 });

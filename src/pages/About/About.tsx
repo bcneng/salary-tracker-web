@@ -5,10 +5,10 @@ import {
   IonPage,
   IonTitle,
   IonToolbar,
+  IonGrid,
+  IonCardHeader,
   IonCard,
   IonCardContent,
-  IonCardHeader,
-  IonGrid,
   IonCardTitle,
 } from '@ionic/react';
 
@@ -21,7 +21,14 @@ const About: React.FC = () => {
         </IonToolbar>
       </IonHeader>
       <IonContent>
-        <IonGrid className="page-header" fixed></IonGrid>
+        <IonGrid className="page-header" fixed>
+          <IonCard className="ion-hide-sm-down">
+            <IonCardHeader>
+              <IonCardTitle>About</IonCardTitle>
+            </IonCardHeader>
+            <IonCardContent>Information about the Website</IonCardContent>
+          </IonCard>
+        </IonGrid>
       </IonContent>
     </IonPage>
   );

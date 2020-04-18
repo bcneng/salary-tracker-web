@@ -8,6 +8,25 @@
 
 [TBD]
 
+## Site Structure
+
+  - **/home** : *(Home Page)*
+  - **/salaries** (Root Page for Salaries)*
+    - **/new-salary** (New Salary Form)*
+    - **/:salary-id** (Detail Page for a specific salary entry)*
+  - **/about** (About Page)*
+
+## Folder Structure
+
+ - **App.tsx** : *(main entry file)*
+ - **App.tsx** : *(root component where routing and navigation is defined)*
+ - **public/** : *(where all the static assets are)*
+ - **Components/** : *(General UI components, potentyally shared)*
+ - **Pages/** : *(representation of every available page route)*
+ - **theme/**
+    - **main.scss** : *(general styling of the website)*
+    - **variables.scss** : *(where theming variables are specified)*
+
 ## Getting started
 
 

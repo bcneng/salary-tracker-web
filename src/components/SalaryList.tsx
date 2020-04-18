@@ -7,34 +7,23 @@ import {
   IonCardSubtitle,
 } from '@ionic/react';
 import './SalaryList.scss';
-
-export type Salary = {
-  company: string;
-  salary: number;
-  position: string;
-};
+import { Salary } from './../pages/Salaries/Salaries';
 
 type Props = {
   salaries: Salary[];
-  onSalaryClick: (salary: Salary) => void;
 };
 
-export const SalaryList: React.FC<Props> = ({ salaries, onSalaryClick }) => {
+export const SalaryList: React.FC<Props> = ({ salaries }) => {
   return (
     <>
       {salaries.map((salary, index) => (
-        <IonCard
-          className="animated-car"
-          key={index}
-          href=""
-          routerLink={`/home/${salary.company}`}
-        >
+        <IonCard className="animated-car" key={index}>
           <IonCardHeader>
-            <IonCardTitle>{salary.company} </IonCardTitle>
+            <IonCardTitle>{salary.role} </IonCardTitle>
           </IonCardHeader>
           <IonCardContent>
             <IonCardSubtitle>{salary.position}</IonCardSubtitle>
-            {salary.salary} €
+            {salary.grossSalary} €
           </IonCardContent>
         </IonCard>
       ))}
