@@ -29,6 +29,9 @@
 
 ## Getting started
 
+### See the live version
+
+https://salary-tracker.bcneng.org/
 
 ### Install dependencies:
 
