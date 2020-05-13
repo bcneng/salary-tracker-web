@@ -19,6 +19,7 @@ import Home from './pages/Home/Home';
 import About from './pages/About/About';
 import Salaries from './pages/Salaries/Salaries';
 import CreateSalary from './pages/CreateSalary/CreateSalary';
+import NotFound from './pages/NotFound/NotFound';
 
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css';
@@ -49,8 +50,10 @@ const App: React.FC = () => {
             <Route path="/about" component={About} exact />
             <Route path="/home" component={Home} exact />
             <Route path="/salaries" component={Salaries} exact />
+            <Route path="/404" component={NotFound} exact />
             <Route path="/salaries/new-salary" component={CreateSalary} exact />
             <Redirect exact from="/" to="/home" />
+            <Redirect to="/404" />
           </IonRouterOutlet>
 
           <IonTabBar slot={'bottom'}>
