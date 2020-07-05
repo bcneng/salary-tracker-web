@@ -16,6 +16,8 @@ import {
   IonIcon,
   IonButtons,
   IonBackButton,
+  IonSelect,
+  IonSelectOption,
 } from '@ionic/react';
 
 import { closeCircleOutline, arrowBack } from 'ionicons/icons';
@@ -38,6 +40,10 @@ const CreateSalary: React.FC = () => {
     weeklyHours: 0,
   });
   const [technology, setTechnology] = useState('');
+
+  const employmentTypes = ['freelancer', 'contractor', 'employee'];
+  const genders = ['female', 'male', 'other'];
+  const companySizes = ['0-10', '10-50', '+50'];
 
   const confirmSalary = () => {
     console.log(formNewSalary);
@@ -119,7 +125,7 @@ const CreateSalary: React.FC = () => {
             </div>
             <div className="input-wrapper">
               <IonLabel class="label">Employment Type</IonLabel>
-              <IonInput
+              <IonSelect
                 onIonChange={(e) =>
                   setFormNewSalary({
                     ...formNewSalary,
@@ -128,12 +134,15 @@ const CreateSalary: React.FC = () => {
                 }
                 className="input ion-margin-top"
                 value={formNewSalary.employmentType}
-                type="text"
-              ></IonInput>
+              >
+                {employmentTypes.map((type: string) => (
+                  <IonSelectOption value={type}>{type}</IonSelectOption>
+                ))}
+              </IonSelect>
             </div>
             <div className="input-wrapper">
               <IonLabel class="label">Company size</IonLabel>
-              <IonInput
+              <IonSelect
                 onIonChange={(e) =>
                   setFormNewSalary({
                     ...formNewSalary,
@@ -142,8 +151,11 @@ const CreateSalary: React.FC = () => {
                 }
                 className="input ion-margin-top"
                 value={formNewSalary.companySize}
-                type="text"
-              ></IonInput>
+              >
+                {companySizes.map((size: string) => (
+                  <IonSelectOption value={size}>{size}</IonSelectOption>
+                ))}
+              </IonSelect>
             </div>
             <div className="input-wrapper">
               <IonLabel class="label">Gross Annual Salary (€)</IonLabel>
@@ -177,7 +189,7 @@ const CreateSalary: React.FC = () => {
 
             <div className="input-wrapper">
               <IonLabel class="label">Gender</IonLabel>
-              <IonInput
+              <IonSelect
                 onIonChange={(e) =>
                   setFormNewSalary({
                     ...formNewSalary,
@@ -186,8 +198,11 @@ const CreateSalary: React.FC = () => {
                 }
                 className="input ion-margin-top"
                 value={formNewSalary.gender}
-                type="text"
-              ></IonInput>
+              >
+                {genders.map((gender: string) => (
+                  <IonSelectOption value={gender}>{gender}</IonSelectOption>
+                ))}
+              </IonSelect>
             </div>
 
             <div className="input-wrapper">
