@@ -35,6 +35,13 @@ ion-content {
           margin: 0;
         }
       }
+      .input-options-list {
+        margin-top: 10px;
+        .input-options-list__item {
+          margin: 0 5px;
+          cursor: pointer;
+        }
+      }
     }
   }
 }

@@ -16,6 +16,7 @@ import {
   IonIcon,
   IonButtons,
   IonBackButton,
+  IonBadge,
 } from '@ionic/react';
 
 import { closeCircleOutline, arrowBack } from 'ionicons/icons';
@@ -38,9 +39,22 @@ const CreateSalary: React.FC = () => {
     weeklyHours: 0,
   });
   const [technology, setTechnology] = useState('');
+  const [availablePositions, setAvailablePositions] = useState([
+    'Developer',
+    'QA',
+  ]);
 
   const confirmSalary = () => {
     console.log(formNewSalary);
+  };
+
+  const onCurrentPositionChange = (value: string) => {
+    // TODO: update list of available positions based on what the user typed
+    setAvailablePositions(['Scrum Master', 'CEO']);
+    setFormNewSalary({
+      ...formNewSalary,
+      position: value,
+    });
   };
 
   const addNewTechnology = () => {
@@ -93,15 +107,27 @@ const CreateSalary: React.FC = () => {
               <IonLabel class="label">Current Position</IonLabel>
               <IonInput
                 onIonChange={(e) =>
-                  setFormNewSalary({
-                    ...formNewSalary,
-                    position: e.detail.value! as string,
-                  })
+                  onCurrentPositionChange(e.detail.value! as string)
                 }
                 type="text"
                 className="input ion-margin-top"
                 value={formNewSalary.position}
               ></IonInput>
+              <div className="input-options-list">
+                {availablePositions.map((position: string) => (
+                  <IonBadge
+                    onClick={() =>
+                      setFormNewSalary({
+                        ...formNewSalary,
+                        position,
+                      })
+                    }
+                    className="input-options-list__item"
+                  >
+                    {position}
+                  </IonBadge>
+                ))}
+              </div>
             </div>
             <div className="input-wrapper">
               <IonLabel class="label">Role</IonLabel>
